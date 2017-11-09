@@ -1,14 +1,15 @@
 package com.sda.planer.demo.Controller;
 
 
+import com.sda.planer.demo.model.Employee;
 import com.sda.planer.demo.sercive.EmployeeService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
 
 
@@ -26,6 +27,19 @@ public class EmployeeController {
 
 
 
+    }
+
+    @GetMapping("/(id)")
+    public ModelAndView getEmployee(@PathVariable("id")Long id){
+        ModelAndView modelAndView= new ModelAndView("employee");
+        modelAndView.addObject("employee", employeeService.get(id));
+        return modelAndView;
+    }
+
+    @PostMapping
+    public String addEmployee(@ModelAttribute Employee employee){
+        employeeService.addEmployee(employee);
+        return "rediret:/employees";
     }
 
 }

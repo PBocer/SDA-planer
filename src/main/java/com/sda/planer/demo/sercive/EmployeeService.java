@@ -1,13 +1,12 @@
 package com.sda.planer.demo.sercive;
 
+import com.sda.planer.demo.model.Employee;
 import com.sda.planer.demo.repository.EmployeeRepository;
-import org.h2.engine.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+
 
 
 @Service
@@ -22,5 +21,17 @@ public class EmployeeService {
     }
 
 
-    
+    public Object getAll() {
+        return (List<Employee>)employeeRepository.findAll();
+    }
+
+
+
+    public void addEmployee(Employee employee) {
+        employeeRepository.save(employee);
+    }
+
+    public Employee get(Long id) {
+        return employeeRepository.findOne(id);
+    }
 }
