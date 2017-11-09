@@ -1,21 +1,16 @@
-package com.sda.planer.demo.model;
-
+package com.sda.planer.planer.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import javax.persistence.*;
-
 
 @NoArgsConstructor
 @Data
 @Entity
 public class Employee {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
     private String firstName;
@@ -27,5 +22,9 @@ public class Employee {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private EmployeeEnum departmen;
+    private EmployeeEnum department;
+
+    public String getFormatedDepartment() {
+        return department.toString();
+    }
 }

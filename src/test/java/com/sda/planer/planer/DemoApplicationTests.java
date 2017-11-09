@@ -1,4 +1,4 @@
-package com.sda.planer.demo;
+package com.sda.planer.planer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
