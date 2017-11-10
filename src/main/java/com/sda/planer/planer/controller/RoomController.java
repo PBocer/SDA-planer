@@ -1,7 +1,5 @@
 package com.sda.planer.planer.controller;
 
-
-import com.sda.planer.planer.model.Employee;
 import com.sda.planer.planer.model.Room;
 import com.sda.planer.planer.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +25,17 @@ public class RoomController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}")
-    public ModelAndView getRoom(@PathVariable("id") long id) {
+    @GetMapping("{id}")
+    public ModelAndView getRoom(@PathVariable long id) {
         ModelAndView modelAndView = new ModelAndView("room");
-        modelAndView.addObject("room", roomService.get(id));
+        modelAndView.addObject("room", roomService.getOne(id));
         return modelAndView;
     }
 
     @PostMapping
-    public String addRooms(@ModelAttribute Room room) {
+    public String addRoom(@ModelAttribute Room room) {
         roomService.addRoom(room);
         return "redirect:/rooms";
     }
+
 }
