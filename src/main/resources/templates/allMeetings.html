@@ -16,7 +16,6 @@
         body {
             padding-top: 50px;
         }
-
         .starter-template {
             padding: 40px 15px;
             text-align: center;
@@ -54,17 +53,17 @@
 </div>
 
 <div class="container">
-    <div class="row" th:each="meeting:${meeting}">
-    <div class="col-xs-4 meeting ">
-    <h6> th:text ="${meeting.date}">21-11-2016</h6>
-    <h1>
-        <strong th:text ="${meeting.title}">Proces rekrutacyjny</strong>
-        <span th:text="${meeting.attendeesCount}">(5)</span>-<span th:text="${meeting.room.name}">Ninkle</span>
-
-        <h3 th:href="${meeting.owner.firstName}+''+${meeting.owner.lastName}">Przemek Bocer</h3>
-        <p th:text="${meeting.shortedDescription}">Lorem ipsum cos tam </p>
-
-
+    <div class="row" th:each="meeting : ${meetings}">
+        <div class="col-xs-4 meeting">
+            <h6 th:text="${meeting.date}">21-11-2017</h6>
+            <h1>
+                <strong th:text="${meeting.title}">Proces Rekrutacyjny</strong>
+                <span th:text="${meeting.attendeesCount}">(5)</span> - <span th:text="${meeting.room.name}">Winkiel</span>
+            </h1>
+            <h3 th:text="${meeting.owner.firstName} + ' ' + ${meeting.owner.lastName}">Szymon Nowak</h3>
+            <p th:text="${meeting.shortenedDescription}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, iste...</p>
+        </div>
+    </div>
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript
