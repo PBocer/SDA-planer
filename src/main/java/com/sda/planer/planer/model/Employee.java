@@ -2,6 +2,7 @@ package com.sda.planer.planer.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 
@@ -24,7 +25,8 @@ public class Employee {
     @Enumerated(EnumType.STRING)
     private EmployeeEnum department;
 
-    public String getFormatedDepartment() {
-        return department.toString();
+    public String getFormattedDepartment() {
+        String lowerCased = StringUtils.lowerCase(department.toString());
+        return StringUtils.capitalize(lowerCased);
     }
 }

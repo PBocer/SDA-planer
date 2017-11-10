@@ -16,6 +16,7 @@
         body {
             padding-top: 50px;
         }
+
         .starter-template {
             padding: 40px 15px;
             text-align: center;
@@ -53,19 +54,21 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <div th:if="${employee} != null">
-            <h6 th:text="${employee.formattedDepartment}">Backend</h6>
-            <h1 th:text="${employee.firstName} + ' ' + ${employee.lastName}">Szymon Nowak</h1>
-            <p>
-                <span th:text="'Telephone Number:' + ${employee.phoneNumber}">Telephone Number: 23643746237</span><br>
-                <span th:text="'Email: ' + ${employee.email}">Email: nowszy94@gmail.com</span>
-            </p>
-        </div>
-        <div th:unless="${employee} != null">
-            There's no employee with that id
-        </div>
+
+
+    <div th:if="${room !=null}">
+    <h1 th:text="${room.name} + ' ' + ${room.capacity}"Pokój</h1>
     </div>
+    <div th:unless="${room !=null}">
+        This is the room wit id
+    </div>
+
+    <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
+            mostly barebones HTML document.</p>
+    </div>
+
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript
@@ -74,3 +77,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+</html>
