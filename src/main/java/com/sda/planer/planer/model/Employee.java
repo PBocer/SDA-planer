@@ -23,9 +23,8 @@ public class Employee {
 
     private String email;
 
-
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "attendees")
-    private List<Meeting> metings;
+    private List<Meeting> meetings;
 
     @Enumerated(EnumType.STRING)
     private EmployeeEnum department;

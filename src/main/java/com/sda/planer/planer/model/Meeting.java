@@ -1,6 +1,5 @@
 package com.sda.planer.planer.model;
 
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -14,13 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class Meeting {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
-    private String tittle;
+    private String title;
 
     private String description;
 
@@ -33,14 +30,15 @@ public class Meeting {
     @ManyToMany
     private List<Employee> attendees;
 
-    @DateTimeFormat(pattern ="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    public int getattendeesCount(){
-        return attendees == null ? 0 :attendees.size()+1;
+    public int getAttendeesCount() {
+        return (attendees == null ? 0 : attendees.size()) + 1;
     }
 
-    public String getshortedDescription() {
-        return StringUtils.abbreviate(description,20);
+    public String getShortenedDescription() {
+        return StringUtils.abbreviate(description, 20);
     }
+
 }
