@@ -16,6 +16,7 @@
         body {
             padding-top: 50px;
         }
+
         .starter-template {
             padding: 40px 15px;
             text-align: center;
@@ -53,35 +54,16 @@
 </div>
 
 <div class="container">
+    <div class="row" th:each="meeting:${meeting}">
+    <div class="col-xs-4 meeting ">
+    <h6> th:text ="${meeting.date}">21-11-2016</h6>
+    <h1>
+        <strong th:text ="${meeting.title}">Proces rekrutacyjny</strong>
+        <span th:text="${meeting.attendeesCount}">(5)</span>-<span th:text="${meeting.room.name}">Ninkle</span>
 
-    <div class="rom">
-        <div class="col-xs-6">
-            <!--lista-->
-            <div class="list-group" th:each="room : ${rooms}">
-                <a href="#"
-                   th:href="'/rooms/' + ${room.id}"
-                   th:text="${room.name} + ' (' + ${room.capacity} + ')'"
-                   class="list-group-item">Winkiel (20)</a>
-            </div>
-        </div>
-        <div class="col-xs-6">
-            <form action="/rooms" method="post" role="form">
-                <legend>Room Form</legend>
+        <h3 th:href="${meeting.owner.firstName}+''+${meeting.owner.lastName}">Przemek Bocer</h3>
+        <p th:text="${meeting.shortedDescription}">Lorem ipsum cos tam </p>
 
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Input...">
-                </div>
-
-                <div class="form-group">
-                    <label for="capacity">Capacity</label>
-                    <input type="number" class="form-control" name="capacity" id="capacity" placeholder="Input...">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
 
 </div><!-- /.container -->
 

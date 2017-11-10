@@ -16,7 +16,6 @@
         body {
             padding-top: 50px;
         }
-
         .starter-template {
             padding: 40px 15px;
             text-align: center;
@@ -54,21 +53,12 @@
 </div>
 
 <div class="container">
-
-
-    <div th:if="${room !=null}">
-    <h1 th:text="${room.name} + ' ' + ${room.capacity}"Pokój</h1>
+    <div th:if="${room} != null">
+        <h1 th:text="${room.name} + ' (' + ${room.capacity} + ')'">Winkiel (16)</h1>
     </div>
-    <div th:unless="${room !=null}">
-        This is the room wit id
+    <div th:unless="${room} != null">
+        There's no room with that id
     </div>
-
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
-    </div>
-
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript
